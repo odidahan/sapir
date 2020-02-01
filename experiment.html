@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>W3Schools Internal Note</h1>
+<div>
+<b>Distance from the sun:</b> <span id="distance_from_the_sun"></span><br>
+</div>
+
+<script>
+var xmlhttp, xmlDoc;
+xmlhttp = new XMLHttpRequest();
+xmlhttp.open("GET", "https://raw.githubusercontent.com/odidahan/sapir/master/planets.xml", false);
+xmlhttp.send();
+xmlDoc = xmlhttp.responseXML;
+
+console.log(xmlDoc);
+
+var tmp=xmlDoc.getElementsByTagName("solarSystem")[0].childNodes[0].nodeValue;
+var x=xmlDoc.getElementsByTagName("planet")[5];
+var y=x.getElementsByTagName("orbit")[0];
+document.getElementById("distance_from_the_sun").innerHTML=y.childNodes[0].nodeValue;
+
+</script>
+
+</body>
+</html>
+
